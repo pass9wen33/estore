@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//WebContent/pages/cart/cartToOrder.jsp=UTF-8
+encoding//WebContent/pages/common/leftParts/login.jsp=UTF-8
+encoding//WebContent/pages/common/statusBarNavigation.jsp=UTF-8
+encoding//WebContent/pages/customer=UTF-8
+encoding//WebContent/pages/customer/userLoginResult.jsp=UTF-8
+encoding//WebContent/pages/customer/userRegister.jsp=UTF-8
+encoding//WebContent/pages/product/main.jsp=UTF-8
+encoding//src/cn/estore/dao/ProductDao.java=UTF-8
+encoding//src/cn/estore/servlet/OrderServlet.java=UTF-8
+encoding//src/cn/estore/util/Encrypt.java=UTF-8

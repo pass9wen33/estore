@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <welcome-file-list>
+    <welcome-file>pages/product/main.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- servlet配置文件，告知容器哪个请求由哪个servlet对象处理 -->
+  <servlet>
+    <description>OrderContorller</description>
+    <display-name>OrderContorller</display-name>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>cn.estore.servlet.OrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description>Test</description>
+    <display-name>Test</display-name>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>cn.estore.servlet.TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
+  <listener>
+    <listener-class>cn.estore.servlet.OnlineCount</listener-class>
+  </listener>
+  <!-- 注册过滤器 -->
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>cn.estore.servlet.EncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>cn.estore.servlet.SessionFilter</filter-class>
+    <init-param>
+      <param-name>loginStrings</param-name>
+      <param-value>index.jsp;main.jsp;productsSoldRank.jsp;
+			  showCategory.jsp;showFindProductsByName.jsp;			
+showProductDiscount.jsp;showProductOriginal.jsp,					            userLoginResult.jsp;userRegister.jsp;userRegisterResult.jsp
+        </param-value>
+    </init-param>
+    <init-param>
+      <param-name>includeStrings</param-name>
+      <param-value>.jsp;.html;</param-value>
+    </init-param>
+    <init-param>
+      <param-name>redirectPath</param-name>
+      <param-value>pages/product/main.jsp </param-value>
+    </init-param>
+    <init-param>
+      <param-name>disabletestfilter</param-name>
+      <param-value>Y</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>SessionServlet</servlet-name>
+    <servlet-class>cn.estore.servlet.SessionFilter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionServlet</servlet-name>
+    <url-pattern>/SessionServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
